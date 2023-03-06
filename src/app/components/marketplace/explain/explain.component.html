@@ -1,0 +1,35 @@
+<div class="explain-main">
+  <!-- Explain Title -->
+  <div class="title">
+    Wine Outperformed the Global Equity Index by <span class="highlight">1.88%</span> annually over the last <span class="highlight">15 years.</span>
+  </div>
+  <!-- End Explain Title -->
+  <!-- Explain Body -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6">
+        <img src="assets/marketplace/market-forces.png"/>
+      </div>
+      <div class="col-sm-6">
+        <div class="title__right">
+          Wine Performance Explained
+        </div>
+        <div class="desc__right">
+          Several factors drive wine prices up over time. These factors make wine an ideal investment for good times and the not so good times.
+        </div>
+
+        <div class="card_list">
+          <app-explain-card
+            *ngFor="let card_data of card_data_list"
+            [img]="card_data.img"
+            [title]="card_data.title"
+            [desc]="card_data.desc"
+          ></app-explain-card>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- End Explain Body -->
+
+</div>

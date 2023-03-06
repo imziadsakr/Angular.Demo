@@ -1,0 +1,124 @@
+<div class="blog-main">
+  <!-- Latest Blog -->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-7 __left">
+        <app-blog-card
+          [img]="'assets/blog/latest.jpg'"
+          [title]="'20 Most Expensive Wine Bottles In The World(2022)'"
+          [author]="'by anthony zhang'"
+        ></app-blog-card>
+      </div>
+
+      <div class="col-sm-5 __right">
+        <div class="most-popular">Most popluar</div>
+
+        <!-- Abbr Blog List -->
+        <div class="abbr-blog-item" *ngFor="let abbr_blog of abbr_blog_list">
+          <div *ngIf="!loading">
+            <div class="title">
+              {{abbr_blog.title}}
+            </div>
+            <div class="author">
+              {{abbr_blog.author}}
+            </div>
+          </div>
+
+          <!-- Abbr Blog Loader -->
+          <div class="abbr-blog-loader" *ngIf="loading">
+            <div style="width: 100%;">
+              <ngx-skeleton-loader
+                count="1"
+                [theme]="{
+                  borderRadius: '5px',
+                  height: '20px',
+                  backgroundColor: '#efecec',
+                  border: '1px solid white'
+                }"
+                appearance="line"
+              ></ngx-skeleton-loader>
+            </div>
+            <div style="width: 50%;">
+              <ngx-skeleton-loader
+                count="1"
+                [theme]="{
+                  borderRadius: '5px',
+                  height: '18px',
+                  backgroundColor: '#efecec',
+                  border: '1px solid white'
+                }"
+                appearance="line"
+              ></ngx-skeleton-loader>
+            </div>
+            <div>
+              <ngx-skeleton-loader
+                count="4"
+                [theme]="{
+                  borderRadius: '5px',
+                  height: '17px',
+                  backgroundColor: '#efecec',
+                  border: '1px solid white'
+                }"
+                appearance="circle"
+              ></ngx-skeleton-loader>
+            </div>
+          </div>
+          <!-- End Abbr Blog Loader -->
+
+        </div>
+        <!-- End Abbr Blog List -->
+      </div>
+    </div>
+  </div>
+  <!-- End Latest Blog -->
+
+  <!-- Blog Tag List -->
+  <div class="container">
+    <div class="row">
+      <div class="tag-list">
+        <a *ngFor="let tag of blog_tags; let i = index;" class="tag-item {{i === selected_tag ? 'active' : ''}}"
+          (click)="selectTag(i)"
+        >
+          {{tag}}
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- End Blog Tag List -->
+
+  <!--  All Blog List -->
+  <div class="all_blog_list">
+    <div class="container">
+      <!-- Loaded -->
+      <div class="row row-cols-3" *ngIf="!loading">
+        <div class="col col-p" *ngFor="let blog of blogsList">
+          <app-blog-small-card
+            [img]="blog.img"
+            [title]="blog.title"
+            [author]="blog.author"
+          ></app-blog-small-card>
+        </div>
+      </div>
+      <!-- End Loaded -->
+
+      <!-- Loading -->
+      <div class="row row-cols-3" *ngIf="loading">
+        <div class="col col-p" *ngFor="let arr of loading_arr">
+          <ngx-skeleton-loader
+            count="1"
+            [theme]="{
+              borderRadius: '5px',
+              height: '360px',
+              backgroundColor: '#efecec',
+              border: '1px solid white'
+            }"
+            appearance="line"
+          ></ngx-skeleton-loader>
+        </div>
+      </div>
+      <!-- End Loading -->
+    </div>
+  </div>
+  <app-test></app-test>
+  <!-- End All Blog List -->
+</div>

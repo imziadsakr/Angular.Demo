@@ -1,0 +1,79 @@
+.walletconn-body {
+  .mat-list {
+    overflow: hidden;
+  }
+
+  .mat-dialog-title {
+    color : white;
+    font-size: 34px;
+  }
+
+  .mat-dialog-content {
+    overflow: hidden;
+    color: white;
+  }
+
+  .mat-dialog-actions {
+    color : white;
+  }
+
+  .mat-list-item {
+    background-color: #404144;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    color : white;
+    cursor: pointer;
+
+    overflow: hidden;
+
+    p {
+      margin: 0px !important;
+    }
+
+    .mat-list-item-content {
+      display: flex;
+      justify-content: space-between;
+      border: 1px solid red !important;
+      width: 100%;
+    }
+  }
+
+  .mat-list-item:last-child {
+    margin-bottom: 0px;
+  }
+
+  .mat-list-item:hover {
+    background-color: #393b3d ;
+  }
+
+  .expanding-animation {
+    animation-duration: 0.3s;
+    animation-name: collapse-expanding;
+    animation-timing-function: linear;
+  }
+
+  .less-animation {
+    animation-duration: 0.3s;
+    animation-name: collapse-less;
+    animation-timing-function: linear;
+    height : 0px;
+  }
+
+  @keyframes collapse-expanding {
+    0% {
+      height: 0px;
+    }
+    100% {
+     height: 172px;
+    }
+  }
+
+  @keyframes collapse-less {
+    0% {
+      height: 172px;
+    }
+    100% {
+     height: 0px;
+    }
+  }
+}

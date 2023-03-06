@@ -1,0 +1,83 @@
+$btn-font-size : 30px ;
+
+@mixin before-suffix {
+  position: absolute;
+  content: " ";
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin-right: 16px;
+  border-radius: 50%;
+
+  left: 20px;
+}
+.option-main {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+
+  .btn-group {
+    display: flex;
+    gap: 40px;
+    .wine-btn {
+      background-color: white;
+      position: relative;
+      max-width: 200px;
+      max-height: 96px;
+      border-radius: 110px;
+      box-shadow: rgb(36 46 53 / 16%) 0px 8px 24px 0px;
+
+      font-size: $btn-font-size;
+      font-weight: bold;
+
+      padding: 40px 60px;
+
+      border: none;
+
+      animation: 1s linear 0s 1 normal none running run-option-anima;
+    }
+
+    .wine-btn::before {
+      @include before-suffix ;
+
+      background-color: rgb(230, 201, 201);
+    }
+
+    .global-btn {
+      background-color: white;
+      position: relative;
+      max-width: 400px;
+      max-height: 96px;
+      border-radius: 110px;
+
+      font-size: $btn-font-size;
+      font-weight: bold;
+
+      padding: 30px 50px;
+
+      border: none;
+
+      animation: 1s linear 0s 1 normal none running run-option-anima;
+    }
+
+    .global-btn::before {
+      @include before-suffix ;
+      background-color: rgb(60, 64, 12);
+    }
+
+    @keyframes run-option-anima {
+      0% {
+        opacity: 0;
+        transform: translateY(50%);
+      }
+      50% {
+        opacity: 0;
+        transform: translateY(50%);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0%);
+      }
+    }
+  }
+}

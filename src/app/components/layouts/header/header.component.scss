@@ -1,0 +1,212 @@
+$inner-color : rgb(239, 221, 199) ;
+$outer-color : rgb(36, 46, 53);
+$tab-inner-hover-color : #b1a18e ;
+$tab-outer-hover-color : #242e35d1 ;
+$tab-font-size : 14px ;
+
+$breakpoints_md : 765px ;
+$breakpoints_sm : 530px ;
+
+@mixin header {
+  padding: 0px 50px;
+
+  height : 90px;
+  width: 100vw;
+
+  display: flex;
+  gap : 20px;
+  align-items: center;
+  justify-content: space-between;
+
+  position : fixed ;
+  z-index: 100;
+  left : 0 ;
+
+  .tab-main {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    img {
+      height: 90px;
+    }
+
+    .tab-list-main {
+      display: flex ;
+      gap: 40px;
+      .tab-link {
+        font-size: $tab-font-size;
+        font-weight: bold;
+
+        text-decoration: none;
+        cursor: pointer;
+        text-transform: uppercase;
+        transition: 0.3s;
+      }
+    }
+  }
+
+  .btn-group {
+    display: flex;
+    gap: 20px;
+    .login-btn {
+      border: 1px solid rgb(239, 221, 199) !important;
+      color: $inner-color;
+      height: 44px;
+      width: 90px;
+      border-radius: 0px;
+      text-transform: uppercase;
+    }
+    .begin-btn {
+      background-color: rgb(168, 109, 55);
+      color: white;
+      text-transform: uppercase;
+      height: 44px;
+      border-radius: 0px;
+    }
+  }
+}
+
+@mixin header-inner {
+  @include header ;
+  background-color: transparent;
+  .tab-main {
+    .tab-list-main {
+      .tab-link {
+        color: $inner-color;
+      }
+      .tab-link:hover {
+        color : $tab-inner-hover-color;
+      }
+    }
+  }
+  .btn-group {
+    .login-btn {
+      border: 2px solid $inner-color !important;
+      color: $inner-color;
+    }
+    .begin-btn {
+      background-color: rgb(168, 109, 55);
+      color: white;
+    }
+  }
+}
+
+@mixin header-outer {
+  @include header ;
+  background-color: white;
+
+  .tab-main {
+    .tab-list-main {
+      .tab-link {
+        color: $outer-color;
+      }
+      .tab-link:hover {
+        color : $tab-outer-hover-color;
+      }
+    }
+  }
+  .btn-group {
+    .login-btn {
+      border: 2px solid $outer-color !important;
+      color: $outer-color;
+    }
+    .begin-btn {
+      background-color: rgb(168, 109, 55);
+      color: white;
+    }
+  }
+}
+
+.header-inner-open {
+  @include header-inner ;
+
+  top : 0px ;
+  animation: inner-open-anima 0.7s linear;
+
+  @keyframes inner-open-anima {
+    from {
+      top : -90px
+    }
+    to {
+      top: 0px;
+    }
+  }
+}
+
+.header-outer-open {
+  @include header-outer ;
+
+  top : 0px ;
+  animation: outer-open-anima 0.7s linear;
+
+  @keyframes outer-open-anima {
+    from {
+      top : -90px
+    }
+    to {
+      top: 0px;
+    }
+  }
+}
+
+.header-outer-close {
+  @include header-outer ;
+
+  top : -90px ;
+  animation: outer-close-anima 0.7s linear;
+
+  @keyframes outer-close-anima {
+    from {
+      top : 0px ;
+    }
+    to {
+      top: -90px;
+    }
+  }
+}
+
+.header-inner-close {
+  @include header-inner ;
+
+  top : -90px ;
+  animation: inner-close-anima 0.7s linear;
+
+  @keyframes inner-close-anima {
+    from {
+      top : 0px ;
+    }
+    to {
+      top: -90px;
+    }
+  }
+}
+
+@mixin active {
+  position: relative;
+}
+
+@mixin active-after-prefix {
+  position: absolute;
+  content: ' ';
+  width: 100%;
+  height: 2px;
+
+  bottom: -8px;
+  left: 0px;
+}
+
+.active-innder, .active-outer {
+  @include active();
+}
+
+.active-innder::after {
+  @include active-after-prefix() ;
+  background-color: $inner-color;
+}
+
+.active-outer::after {
+  @include active-after-prefix() ;
+  background-color: $outer-color;
+}
+

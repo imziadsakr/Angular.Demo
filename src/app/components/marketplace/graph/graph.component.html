@@ -1,0 +1,48 @@
+<div class="graph-main">
+  <!-- Background Image -->
+  <img src="assets/marketplace/graph.svg" />
+  <!-- End Background Image -->
+
+  <!-- 1th Percent Panel -->
+  <div class="box-container-one">
+    <div class="box-animation-one">
+      <div class="box__left">
+        Wine
+      </div>
+      <div class="box__right">
+        <div class="percent">{{format(first_percent)}}%</div>
+        <div class="date">31/10/2021</div>
+      </div>
+    </div>
+    <div class="line-animation-one"></div>
+  </div>
+  <!-- End 1th Percent Panel -->
+
+  <!-- 2th Percent Panel -->
+  <div class="box-container-two">
+    <div class="box-animation-two">
+      <div class="box__left">
+        Get
+      </div>
+      <div class="box__right">
+        <div class="percent">{{format(second_percent)}}%</div>
+        <div class="date">31/10/2021</div>
+      </div>
+    </div>
+    <div class="line-animation-two"></div>
+  </div>
+  <!-- End 2th Percent Panel -->
+
+  <!-- Percent Y Axis -->
+  <div class="percent-y-axis">
+    <div class="percent-y-ele" *ngFor="let percent of percent_list">{{percent}}</div>
+  </div>
+  <!-- End Percent Y Axis -->
+
+  <!-- Date X Axis -->
+  <div class="date-x-axis">
+    <div class="date-x-ele" *ngFor="let date of date_list">{{date}}</div>
+  </div>
+  <!-- End Date X Axis -->
+
+</div>

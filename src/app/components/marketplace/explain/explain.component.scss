@@ -1,0 +1,59 @@
+.explain-main {
+  background-color: rgb(60, 64, 12);
+  color: rgb(230, 201, 201);
+  padding-top: 100px;
+
+  .title {
+    font-size: 36px;
+    text-align: center;
+    font-weight: 500;
+
+    .highlight {
+      color: rgb(224, 229, 205);
+      text-decoration: underline;
+    }
+  }
+
+  .row {
+    margin-top: 100px;
+    .col-sm-6 {
+      padding: 0px;
+    }
+
+    .title__right {
+      padding-top: 40px;
+      font-size: 64px;
+      line-height: 64px;
+      font-weight: 700;
+    }
+
+    .desc__right {
+      padding-top: 30px;
+      font-size: 20px;
+      line-height: 35px;
+      font-weight: 550;
+      max-width: 560px;
+    }
+
+    .card_list {
+      margin-top: 50px;
+      display: flex;
+      justify-content: space-between;
+
+      padding-right: 50px;
+
+      animation: card_list_anima 0.5s linear 0s 1 normal none running;
+    }
+  }
+}
+
+@keyframes card_list_anima {
+  from {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,36 @@
+$title-font-size : 72px;
+$title-desc-size : 20px ;
+$color : rgb(239, 221, 199) ;
+
+.top-banner-main {
+  padding-top: 200px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: $color;
+
+  img {
+    width: 90%;
+  }
+
+  .title {
+    font-size: $title-font-size;
+    height: auto;
+    line-height: 80px;
+    font-weight: 900;
+
+    margin-bottom: 40px;
+  }
+
+  .desc {
+    font-size: $title-desc-size;
+    max-width: 650px;
+
+    text-align: center;
+    line-height: 35px;
+
+    margin-bottom: 30px;
+  }
+}

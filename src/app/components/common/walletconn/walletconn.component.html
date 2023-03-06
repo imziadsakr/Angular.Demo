@@ -1,0 +1,27 @@
+<div class="walletconn-body">
+  <h2 mat-dialog-title>Connect Wallet</h2>
+  <mat-dialog-content class="mat-typography">
+    <mat-list>
+      <mat-list-item *ngFor="let wallet of wallets">
+        <div mat-line>{{wallet.label}}</div>
+        <img src={{wallet.icon}} width="24" height="24" alt='' *ngIf="wallet.icon"/>
+      </mat-list-item>
+    </mat-list>
+
+    <mat-list class="{{collapsible ? 'expanding-animation' : 'less-animation'}}">
+      <mat-list-item *ngFor="let wallet of hiddenWallets">
+        <div mat-line>{{wallet.label}}</div>
+        <img src={{wallet.icon}} width="24" height="24" alt='' *ngIf="wallet.icon"/>
+      </mat-list-item>
+    </mat-list>
+
+    <mat-list>
+      <mat-list-item (click)="collapsible = !collapsible">
+        <div mat-line >
+          {{collapsible ? 'Less Options' : 'More Options'}}
+        </div>
+        <mat-icon>{{collapsible ? 'arrow_circle_up' : 'arrow_circle_down'}}</mat-icon>
+      </mat-list-item>
+    </mat-list>
+  </mat-dialog-content>
+</div>

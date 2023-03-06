@@ -1,0 +1,115 @@
+<div class="landing-main">
+  <video class="landing-video" loop autoplay>
+    <source src="../../../assets/landing/video.mp4" />
+  </video>
+
+  <!-- Goto Marketplace Main -->
+  <div class="go-to" >
+    <div class="font56" >Own A Word</div>
+    <div class="font32">Aquarius Collection</div>
+    <button mat-raised-button>Marketplace</button>
+  </div>
+  <!-- End Goto Marketplace Main -->
+
+  <!-- Goto Marketplace Mobile -->
+  <div class="mobile-go-to">
+    <div class="mobile-go-to-container">
+      <div class="font36" >Own A Word</div>
+      <div class="font24">Aquarius Collection</div>
+      <button mat-raised-button>Marketplace</button>
+    </div>
+  </div>
+  <!-- End Goto Marketplace Mobile -->
+
+  <!-- About Kanon -->
+  <mat-grid-list #grid cols="{{cols}}" class="about-kanon">
+    <mat-grid-tile>
+      <div class="roadmap-img">
+        <img src="../../../assets/landing/roadmap.png" />
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="about-kanon-desc">
+        <div class="title">
+          About Kanon
+        </div>
+        <div class="content">
+          Kanon Exchange is the native marketplace and NFT minting platform for the Synesis One ecosystem. Kanon NFT is an ontology primitive, a fractional ownership unit of the Web3 Data Utility being built by Synesis DAO. All Kanon NFT holders are entitled to receive claimable SNS, Synesis DAO's governance token, based on how frequently the underlying keyword is accessed by AI companies to help train their conversational models
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <!-- End About Kanon -->
+
+  <!-- Aquarius Main -->
+  <div class="aquarius-main">
+    <div class="title">The Aquarius Collection</div>
+    <div class="marketplace-btn-div">
+      <button mat-raised-button class="marketplace-btn">Marketplace <mat-icon>arrow_right_alt</mat-icon></button>
+    </div>
+
+    <!-- Aquarius Slide -->
+    <div class="aquarius-slide">
+      <button mat-fab aria-label="Example icon button with a vertical three dot icon" class="aquarius-slider-btn"
+        (click)="slidePrev()"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+        </svg>
+      </button>
+
+      <swiper
+        #swiper
+        [slidesPerView]="slides"
+        [spaceBetween]="30"
+        (swiper)="onSwiper($event)"
+        (slideChange)="onSlideChange()"
+        class="mySwiper"
+      >
+        <ng-template swiperSlide *ngFor="let aquarius of aquarius_list">
+          <div class='aquarius-img-container'>
+            <img src={{aquarius}} />
+          </div>
+        </ng-template>
+      </swiper>
+
+      <button mat-fab aria-label="Example icon button with a vertical three dot icon" class="aquarius-slider-btn"
+        (click)="slideNext()"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+        </svg>
+      </button>
+    </div>
+    <!-- End Aquarius Slide -->
+  </div>
+  <!-- End Aquarius Main -->
+
+  <!-- Game Main -->
+  <div class="game-main">
+    <div class="title">Games</div>
+    <div class="small-title">Quantum Noesis</div>
+
+    <!-- Game Slide -->
+    <div class="game-slide">
+      <swiper
+        #swiper
+        [slidesPerView]="1"
+        [spaceBetween]="30"
+        (swiper)="onSwiper($event)"
+        (slideChange)="onSlideChange()"
+        [pagination]="{ clickable: true }"
+        class="mySwiper"
+      >
+        <ng-template swiperSlide *ngFor="let game of game_list; let i = index;">
+          <img src={{game}} *ngIf="i !== 1"/>
+          <video *ngIf="i === 1"  autoplay loop>
+            <source src={{game}} />
+          </video>
+        </ng-template>
+      </swiper>
+    </div>
+    <!-- End Game Slide -->
+  </div>
+  <!-- End Game Main -->
+</div>

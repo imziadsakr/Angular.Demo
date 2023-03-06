@@ -1,0 +1,48 @@
+$marketplace-bg-color : white ;
+$--bs-accordion-border-radius : 0px ;
+
+.marketplace-main {
+  background-color: $marketplace-bg-color;
+
+  width: 100%;
+  min-height: 100vh;
+
+  .search-bar-main {
+    padding-top: 100px;
+  }
+
+  .search-bar {
+    font-size: 48px;
+  }
+
+  .search-field {
+    color : #ffffff99;
+    height: 48px !important;
+    background-color: rgba(224,224,255,0.02);
+    border-radius: 10px;
+    border-color: white;
+  }
+
+  .input-group {
+    max-width: 300px;
+    .input-group-text {
+      background-color: rgba(224,224,255,0.02);
+      border: none;
+
+      .mat-icon {
+        color: #949393;
+      }
+    }
+
+    .form-control {
+      background-color: rgba(224,224,255,0.02);
+      border: none;
+      position: relative;
+      color: white;
+    }
+
+    .form-control:focus {
+      box-shadow: none;
+    }
+  }
+}

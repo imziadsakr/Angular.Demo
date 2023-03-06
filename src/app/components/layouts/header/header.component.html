@@ -1,0 +1,39 @@
+<div class="{{!sticky ? 'header-inner-open' : 'header-inner-close'}}">
+  <div class="tab-main">
+    <img src="assets/header/logo-inner.svg" class="logo-img"/>
+    <div class="tab-list-main">
+      <a *ngFor="let tab of tabs_list; let i = index ;"
+        class="tab-link {{selected_tab === i ? 'active-innder' : ''}}"
+        routerLink="{{tab.link}}"
+        (click)="selectTab(i)"
+      >
+        {{tab.label}}
+      </a>
+    </div>
+  </div>
+  <div class="btn-group">
+    <button mat-stroked-button class="login-btn">Login</button>
+    <button mat-raised-button class="begin-btn">Get started</button>
+  </div>
+</div>
+
+<div class="{{!sticky ? 'header-outer-close' : 'header-outer-open'}}">
+  <div class="tab-main">
+    <img src="assets/header/logo-outer.svg" class="logo-img"/>
+    <div class="tab-list-main">
+      <a *ngFor="let tab of tabs_list; let i = index;"
+        class="tab-link {{selected_tab === i ? 'active-outer' : ''}}"
+        routerLink="{{tab.link}}"
+        (click)="selectTab(i)"
+      >
+        {{tab.label}}
+      </a>
+    </div>
+  </div>
+  <div class="btn-group">
+    <button mat-stroked-button class="login-btn">
+      Login
+    </button>
+    <button mat-raised-button class="begin-btn">Get started</button>
+  </div>
+</div>

@@ -1,0 +1,234 @@
+@mixin box-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: absolute;
+}
+
+@mixin box-animation {
+  background: transparent;
+  color: black;
+  display: flex;
+
+  position: absolute;
+  bottom: 25px;
+  left: -107px;
+
+  animation: box-appear 2s linear 0s 1 normal none running  ;
+}
+
+@mixin box_left {
+  display: flex;
+  padding: 18px 6px;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  text-transform: uppercase;
+  line-height: 178%;
+  writing-mode: vertical-lr;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  box-shadow: rgb(36 46 53 / 16%) 0px 8px 24px 0px;
+}
+
+@mixin box_right {
+  display: flex;
+  padding: 11px 16px;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  position: relative;
+
+  box-shadow: rgb(36 46 53 / 16%) 0px 8px 24px 0px;
+  .percent {
+    font-size: 32px;
+    line-height: 32px;
+    font-weight: 700;
+  }
+  .date {
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    font-size: 13px;
+    line-height: 15px;
+    text-transform: uppercase;
+  }
+}
+
+@mixin after-prefix {
+  content: " ";
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 0px;
+  border-top: 11px solid rgb(255, 255, 255);
+  border-right: 11px solid transparent;
+  border-left: 11px solid transparent;
+  transform: translate(-50%, 100%);
+}
+
+@mixin before-suffix {
+  content: " ";
+  display: block;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  bottom: auto;
+  width: 15px;
+  height: 15px;
+  border: 2px solid rgb(81, 48, 17);
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  transform: translate(-50%, -50%);
+}
+
+@mixin line-animation {
+  animation: 1s ease-in-out 0s 1 normal none running line-growth ;
+  border-top: 1px dashed rgb(81, 48, 17);
+  position: relative;
+}
+
+@keyframes box-appear {
+  0% {
+    bottom: 72px;
+    opacity: 0;
+  }
+  74% {
+    bottom: 72px;
+    opacity: 0;
+  }
+  85% {
+    bottom: 52px;
+    opacity: 1;
+  }
+  100% {
+    bottom: 25px;
+  }
+}
+
+@keyframes line-growth {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+      transform: translateX(0px);
+  }
+}
+
+.graph-main {
+  position: relative;
+  img {
+    width: 100%;
+  }
+
+  .box-container-one {
+    @include box-container() ;
+
+    left: 70%;
+    top: 25%;
+    width: 30%;
+
+    .box-animation-one {
+      @include box-animation() ;
+
+      width: fit-content;
+      .box__left {
+        @include box_left() ;
+        background-color: rgb(230, 201, 201);
+      }
+
+      .box__right {
+        @include box_right();
+      }
+
+      .box__right::after {
+        @include after-prefix();
+      }
+    }
+
+    .line-animation-one {
+      @include line-animation() ;
+    }
+
+    .line-animation-one::before {
+      @include before-suffix();
+    }
+  }
+
+  .box-container-two {
+    @include box-container();
+
+    left: 60%;
+    top: 50%;
+    width: 40%;
+
+    .box-animation-two {
+      @include box-animation() ;
+
+      width: fit-content;
+      .box__left {
+        @include box_left() ;
+        background-color: rgb(60, 64, 12);
+      }
+
+      .box__right {
+        @include box_right();
+      }
+
+      .box__right::after {
+        @include after-prefix();
+      }
+    }
+
+    .line-animation-two {
+      @include line-animation();
+    }
+
+    .line-animation-two::before {
+      @include before-suffix();
+    }
+  }
+
+  .percent-y-axis {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    position: absolute;
+    top: 0px;
+    left: 50px;
+
+    height: 86%;
+
+    .percent-y-ele {
+      color: rgb(81, 48, 17);
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+
+  .date-x-axis {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+
+    bottom: -28px;
+    width: 100%;
+
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 50px;
+
+    border-top: 1px dashed rgb(230, 201, 201);
+
+    .date-x-ele {
+      color: rgb(230, 201, 201);
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+}

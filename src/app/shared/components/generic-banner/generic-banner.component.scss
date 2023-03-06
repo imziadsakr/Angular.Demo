@@ -1,0 +1,33 @@
+$small-title-font-size : 20px;
+$title-font-size : 64px;
+$desc-font-size : 20px;
+
+.generic-banner-main {
+  color: black;
+  padding-top: 150px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .small-title {
+    font-size: $small-title-font-size;
+    text-align: center;
+    line-height: 20px;
+    margin-bottom: 50px;
+  }
+  .title {
+    font-size: $title-font-size;
+    line-height: 64px;
+    margin-bottom: 50px;
+    text-align: center;
+    font-weight: 800;
+  }
+  .desc {
+    max-width: 650px;
+    font-size: $desc-font-size;
+    text-align: center;
+    line-height: 30px;
+    margin-bottom: 30px;
+    font-weight: bold;
+  }
+}

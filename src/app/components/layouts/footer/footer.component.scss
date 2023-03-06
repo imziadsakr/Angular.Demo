@@ -1,0 +1,31 @@
+$footer-background : linear-gradient(135deg,#33334b,#27273e 51.37%,#202036 99.14%);
+$footer-box-shadow : 0px 1px 1px rgba(20,16,41,0.4),-4px -4px 8px rgba(224,224,255,0.04),8px 8px 24px rgba(20,16,41,0.4) ;
+
+.footer-main {
+  box-shadow: $footer-box-shadow;
+
+  height: 70px;
+  padding-left: 30px;
+  padding-right: 30px;
+
+  color : white ;
+
+  display:  flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .communication-main {
+    display: flex ;
+    gap: 20px;
+
+    img {
+      width: 28px;
+      height: 24px;
+      cursor: pointer;
+    }
+  }
+
+  .term {
+    cursor: pointer;
+  }
+}
